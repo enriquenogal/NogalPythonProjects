@@ -5,25 +5,17 @@ def cifrar(texto_claro,clave):
     min = "abcdefghijklmnñopqrstuvxyz"
     may = min.upper()
     posicion = 0
-    cifrada = False
     i = 0
     for c in texto_claro:
-        cifrada = False
-        try:
+        if c in min:
             posicion = (min.index(c) + min.index(clave[i])) % len(min)
             texto_cifrado += min[posicion]
-            cifrada = True
             i = (i + 1) % len(clave)
-        except:
-            None
-        try:
+        elif c in may:
             posicion = (may.index(c) + min.index(clave[i])) % len(min)
             texto_cifrado += may[posicion]
-            cifrada = True
             i = (i + 1) % len(clave)
-        except:
-            None
-        if not(cifrada):
+        else:
             texto_cifrado += c
     return texto_cifrado
 
