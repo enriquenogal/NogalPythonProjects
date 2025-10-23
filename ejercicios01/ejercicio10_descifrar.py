@@ -25,11 +25,11 @@ if __name__ == "__main__":
     texto_cifrado = ""
     if len(sys.argv) != 3:
         #sys.exit("Número de parámetros incorrecto")
-        texto_claro = "Hplb eqeA"
-        clave = "ab"
+        texto_claro = input("Dame el texto a descifrar: ")
+        clave = input("Dame la clave de cifrado que se utilizó: ").lower().replace(" ", "")
     else:
         texto_claro = sys.argv[1]
-        clave = sys.argv[2].lower()
+        clave = sys.argv[2].lower().replace(" ", "")
 
     texto_cifrado = cifrar(texto_claro,clave)
     print(texto_cifrado)
